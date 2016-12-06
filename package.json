@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "postinstall": "./node_modules/.bin/webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,10 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/angrobertsh/bathroom_bnb/issues"
+  },
+  "engines": {
+    "node": "6.3.1",
+    "npm": "3.10.3"
   },
   "homepage": "https://github.com/angrobertsh/bathroom_bnb#readme",
   "dependencies": {
