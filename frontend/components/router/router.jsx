@@ -5,7 +5,6 @@ import App from '../app';
 class AppRouter extends React.Component{
   constructor(props){
     super(props);
-
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App }>
