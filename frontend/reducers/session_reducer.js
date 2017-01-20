@@ -14,9 +14,6 @@ const SessionsReducer = (state = defaultState, action) => {
     case "RECEIVE_CURRENT_USER":
       newState = merge(defaultState, {currentUser: action.user});
       return newState;
-    case "CLEAR_CURRENT_USER":
-      newState = defaultState;
-      return newState;
     case "RECEIVE_ERRORS":
       newState = merge(newState, {errors: action.errors});
       return newState;

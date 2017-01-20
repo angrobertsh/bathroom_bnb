@@ -25,12 +25,6 @@ export const receiveCurrentUser = (user) => {
   }
 };
 
-export const clearCurrentUser = () => {
-  return {
-    type: "CLEAR_CURRENT_USER"
-  }
-};
-
 export const receiveErrors = (errors) => {
   return {
     type: "RECEIVE_ERRORS"

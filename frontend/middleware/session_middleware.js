@@ -6,7 +6,7 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
     dispatch(ACTIONS.receiveErrors(error.responseJSON));
   }
 
-  let success = (data) => {
+  let success = (user) => {
     dispatch(ACTIONS.receiveCurrentUser(user));
   };
 
@@ -19,7 +19,7 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
       return next(action);
     case "LOGOUT":
       success = (data) => {
-        dispatch(ACTIONS.clearCurrentUser());
+        dispatch(ACTIONS.receiveCurrentUser(null));
       };
       UTILS.logout(success, error)
       return next(action);
