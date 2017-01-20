@@ -6,7 +6,7 @@ const defaultState = {
   errors: []
 };
 
-const SessionsReducer = (state = defaultState, action) => {
+const SessionReducer = (state = defaultState, action) => {
 
   let newState = merge({}, state);
 
@@ -23,4 +23,4 @@ const SessionsReducer = (state = defaultState, action) => {
 }
 
 
-export default SessionsReducer;
+export default SessionReducer;

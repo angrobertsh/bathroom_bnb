@@ -3,7 +3,7 @@ import Greeting from './greeting';
 import * as SESSION_ACTIONS from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
-  currentUser: state.sessions.currentUser
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
