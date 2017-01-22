@@ -7,7 +7,12 @@ import * as ACTIONS from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById("root");
-  let store = configureStore();
+  let store;
+  let preloadedState;
+  if (window.currentUser){
+    preloadedState = {session: {currentUser: window.currentUser}}
+  }
+  store = configureStore(preloadedState);
   window.store = store;
   window.login = ACTIONS.login;
 
