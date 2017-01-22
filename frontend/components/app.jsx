@@ -9,4 +9,6 @@ const App = ({children}) => (
   </div>
 );
 
+// You passed this to the router as the default route
+
 export default App;

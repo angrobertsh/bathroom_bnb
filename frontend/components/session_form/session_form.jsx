@@ -11,11 +11,14 @@ class SessionForm extends React.Component{
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(e){
     e.preventDefault();
-    debugger
+    let stateUpdate = {};
+    stateUpdate[e.target.name] = e.target.value;
+    this.setState(stateUpdate);
   }
 
   handleSubmit(e){
@@ -23,12 +26,28 @@ class SessionForm extends React.Component{
     this.props.formAction(this.state);
   }
 
+  renderErrors(){
+    let errors = [];
+    this.props.errors.forEach((error) => {errors.push(<div className="error">{error}</div>)});
+    return errors;
+  }
+
   render(){
     return (
       <div className="authbox">
-        <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.update}></input>
-        <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.update}></input>
-        <button onClick={this.handleSubmit}>Submit</button>
+        <form id="authform" onSubmit={this.handleSubmit}>
+          <div className="authname">
+            <span className="authtitle">{this.props.formType.toUpperCase()}</span>
+          </div>
+          <div className="autherrors">
+            <span className="errors">{this.renderErrors()}</span>
+          </div>
+          <div className="authfields">
+            <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.update}></input>
+            <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.update}></input>
+            <button className="submitbutton">Submit</button>
+          </div>
+        </form>
       </div>);
   }
 
