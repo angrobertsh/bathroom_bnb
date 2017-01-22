@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   let formAction;
   if(formType === "login"){
     formAction = (user) => {dispatch(SESSION_ACTIONS.login(user))};
-  } elsif (formType === "signup") {
+  } else if (formType === "signup") {
     formAction = (user) => {dispatch(SESSION_ACTIONS.signup(user))};
   }
 
