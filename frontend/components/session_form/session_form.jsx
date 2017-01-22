@@ -12,6 +12,7 @@ class SessionForm extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.authAltMessage = this.authAltMessage.bind(this);
   }
 
   update(e){
@@ -27,7 +28,7 @@ class SessionForm extends React.Component{
     this.props.router.push("/");
   }
 
-  authMessage(){
+  authAltMessage(){
     if(this.props.formType === "login"){
       return (<Link to="/signup">Signup</Link>);
     } else if (this.props.formType === "signup"){
@@ -48,11 +49,11 @@ class SessionForm extends React.Component{
           <div id="authname">
             <span id="authtitle">{this.props.formType.toUpperCase()}</span>
           </div>
-          <div id="altauth">
-            <div id="authmessage">Or {this.authMessage()}</div>
+          <div id="authalt">
+            <div id="authaltmessage">Or {this.authAltMessage()}</div>
           </div>
           <div id="autherrors">
-            <ul className="errors">{this.renderErrors()}</ul>
+            <ul id="autherrors">{this.renderErrors()}</ul>
           </div>
           <div id="authfields">
             <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.update}></input>
