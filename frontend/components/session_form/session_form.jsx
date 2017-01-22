@@ -24,6 +24,15 @@ class SessionForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     this.props.formAction(this.state);
+    this.props.router.push("/");
+  }
+
+  authMessage(){
+    if(this.props.formType === "login"){
+      return (<Link to="/signup">Signup</Link>);
+    } else if (this.props.formType === "signup"){
+      return (<Link to="/login">Login</Link>);
+    }
   }
 
   renderErrors(){
@@ -36,16 +45,19 @@ class SessionForm extends React.Component{
     return (
       <div className="authbox">
         <form id="authform" onSubmit={this.handleSubmit}>
-          <div className="authname">
-            <span className="authtitle">{this.props.formType.toUpperCase()}</span>
+          <div id="authname">
+            <span id="authtitle">{this.props.formType.toUpperCase()}</span>
           </div>
-          <div className="autherrors">
-            <span className="errors">{this.renderErrors()}</span>
+          <div id="altauth">
+            <div id="authmessage">Or {this.authMessage()}</div>
           </div>
-          <div className="authfields">
+          <div id="autherrors">
+            <ul className="errors">{this.renderErrors()}</ul>
+          </div>
+          <div id="authfields">
             <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.update}></input>
             <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.update}></input>
-            <button className="submitbutton">Submit</button>
+            <input type="submit" value="Submit" />
           </div>
         </form>
       </div>);
