@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
+  has_many :bathrooms
+
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64(32)
   end
