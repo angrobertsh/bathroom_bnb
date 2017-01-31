@@ -1,5 +1,5 @@
 class Vote < ActiveRecord::Base
-  validates :user_id, uniqueness: { scope: [:votable_id, :votable_type] }
+  validates :user_id, uniqueness: { scope: [:votable_id, :votable_type] }, presence: true
   validates :value, presence: true
 
 

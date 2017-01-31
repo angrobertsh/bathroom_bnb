@@ -6,7 +6,7 @@ class CreateVotes < ActiveRecord::Migration
       t.integer :votable_id, null: false
       t.string :votable_type, null: false
 
-      t.references :votable_type, polymorphic: true, index: true
+      t.references :votable, polymorphic: true, index: true
 
       t.timestamps null: false
     end
