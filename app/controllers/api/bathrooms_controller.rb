@@ -1,17 +1,11 @@
 class Api::BathroomsController < ApplicationController
+  before_action :ensure_logged_in, only: [:create]
 
   def show
     @bathroom = Bathroom.find_by_id(params[:id])
   end
 
   def create
-
-    # Only a problem if you create a bathroom with ajax--no db level validation for logged in
-    if logged_in? == false
-      @errors = ["Please log in to review a bathroom."]
-      render "api/shared/error"
-    end
-
     @bathroom = Bathroom.new(bathroom_params)
     if @bathroom.save
       @tags = bathroom_params[:tags].split(",").map(&:lstrip).map(&:downcase)
@@ -44,6 +38,14 @@ class Api::BathroomsController < ApplicationController
 
   def bathroom_params
     params.require(:bathroom).permit(:url, :lat, :lng, :gender, :description, :tags, :single)
+  end
+
+  def ensure_logged_in
+    # Only a problem if you create a bathroom with ajax--no db level validation for logged in
+    if logged_in? == false
+      @errors = ["Please log in to review a bathroom."]
+      render "api/shared/error"
+    end
   end
 
 end

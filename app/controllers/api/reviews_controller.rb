@@ -16,10 +16,8 @@ class Api::ReviewsController < ApplicationController
 
   def update
     @review = Review.find_by_id(params[:id])
-    new_params = review_params
-    new_params[:user_id] = current_user.id
 
-    if @review.update_attributes(new_params)
+    if @review.update_attributes(review_params)
       @bathroom = Bathroom.find_by_id(new_params[:bathroom_id])
       render "api/bathrooms/show"
     else
@@ -29,15 +27,9 @@ class Api::ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find_by_id(params[:id])
-    new_params = review_params
-    new_params[:user_id] = current_user.id
-
-
-    @review.destroy
+    Review.find_by_id(params[:id]).destroy
     @bathroom = Bathroom.find_by_id(new_params[:bathroom_id])
     render "api/bathrooms/show"
-
   end
 
   private
