@@ -1,5 +1,5 @@
 class Bathroom < ActiveRecord::Base
-  validates :lat, :lng, :gender, :description, presence: true
+  validates :lat, :lng, :gender, :description, :single, presence: true
   validates :lat, uniqueness: { scope: :lng, :gender }
 
   has_many :reviews
