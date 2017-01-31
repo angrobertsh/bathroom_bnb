@@ -5,7 +5,7 @@ class CreateBathrooms < ActiveRecord::Migration
       t.string :gender, null: false
       t.float :lat, null: false
       t.float :lng, null: false
-      t.int :user_id, null: false
+      t.string :url
 
       t.timestamps null: false
     end
