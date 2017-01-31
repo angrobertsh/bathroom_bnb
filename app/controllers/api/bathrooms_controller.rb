@@ -1,6 +1,10 @@
 class Api::BathroomsController < ApplicationController
   before_action :ensure_logged_in, only: [:create]
 
+  def index
+    @bathrooms = Bathroom.all
+  end
+
   def show
     @bathroom = Bathroom.find_by_id(params[:id])
   end
