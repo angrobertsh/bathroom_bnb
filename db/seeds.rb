@@ -25,3 +25,13 @@ Vote.create(value: 1, user_id: 1, votable_id: 1, votable_type: "Review")
 Vote.create(value: -1, user_id: 1, votable_id: 2, votable_type: "Review")
 Vote.create(value: 0, user_id: 1, votable_id: 3, votable_type: "Bathroom")
 Vote.create(value: 1, user_id: 1, votable_id: 2, votable_type: "Bathroom")
+
+# ajax tests
+
+# $.ajax({
+#   url: "api/bathrooms",
+#   method: "POST",
+#   data: {bathroom: {description: "a snug little buttvalley", lat: 1, lng: 235, single: true, gender: "men", tags: "lovely, filthy, Glory"}},
+#   success: (data) => {console.log(data)},
+#   error: (error) => {console.log(error)}
+# })

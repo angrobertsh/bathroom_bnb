@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  belongs_to :votable, polymorphic: true
+  has_many :votes
   has_many :reviews
 
   def ensure_session_token

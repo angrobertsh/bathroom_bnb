@@ -12,8 +12,10 @@ class Api::BathroomsController < ApplicationController
   def create
     @bathroom = Bathroom.new(bathroom_params)
     if @bathroom.save
-      @tags = bathroom_params[:tags].split(",").map(&:lstrip).map(&:downcase)
-      @tags.each{|tagname| Tag.create({tagname: tagname, bathroom_id: @bathroom.id}}
+      if bathroom_params[:tags]
+        @tags = bathroom_params[:tags].split(",").map(&:lstrip).map(&:downcase)
+        @tags.each{|tagname| Tag.create({tagname: tagname, bathroom_id: @bathroom.id})}
+      end
       render "api/bathrooms/show"
     else
       @errors = @bathroom.errors.full_messages
@@ -22,7 +24,6 @@ class Api::BathroomsController < ApplicationController
         status: 422
       )
     end
-
   end
 
   def update
