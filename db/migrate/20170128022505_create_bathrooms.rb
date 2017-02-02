@@ -10,5 +10,7 @@ class CreateBathrooms < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :bathrooms, [:lat, :lng, :gender], unique: true
   end
 end

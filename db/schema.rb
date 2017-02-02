@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170131061428) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "bathrooms", ["lat", "lng", "gender"], name: "index_bathrooms_on_lat_and_lng_and_gender", unique: true, using: :btree
+
   create_table "reviews", force: :cascade do |t|
     t.string   "body",        null: false
     t.string   "user_id",     null: false
