@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.string :body, null: false
       t.string :user_id, null: false
       t.string :bathroom_id, null: false
+      t.integer :stars, null: false
 
       t.timestamps null: false
     end

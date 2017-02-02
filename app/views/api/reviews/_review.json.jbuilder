@@ -1,5 +1,5 @@
 json.set! "#{review.id}" do
-  json.extract! review, :id, :body, :bathroom_id, :user_id
+  json.extract! review, :id, :body, :bathroom_id, :user_id, :stars
   json.username review.user.username
   json.url review.user.url
   json.votes review.votes do |vote|

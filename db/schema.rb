@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170131061428) do
     t.string   "body",        null: false
     t.string   "user_id",     null: false
     t.string   "bathroom_id", null: false
+    t.integer  "stars",       null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

@@ -3,9 +3,6 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.integer :value, null: false
       t.integer :user_id, null: false
-      t.integer :votable_id, null: false
-      t.string :votable_type, null: false
-
       t.references :votable, polymorphic: true, index: true
 
       t.timestamps null: false
