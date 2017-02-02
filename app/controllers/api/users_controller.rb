@@ -7,10 +7,7 @@ class Api::UsersController < ApplicationController
       render "api/users/show"
     else
       @errors = @user.errors.full_messages
-      render(
-        "api/shared/error",
-        status: 422
-      )
+      render_errors(@errors)
     end
   end
 

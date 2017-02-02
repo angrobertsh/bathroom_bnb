@@ -50,12 +50,4 @@ class Api::VotesController < ApplicationController
     render "api/bathrooms/show"
   end
 
-  def render_errors(errors)
-    @errors = errors
-    render(
-      "api/shared/error",
-      status: 422
-    )
-  end
-
 end

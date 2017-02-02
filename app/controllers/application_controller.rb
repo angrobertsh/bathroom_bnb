@@ -24,4 +24,12 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def render_errors(errors)
+    @errors = errors
+    render(
+      "api/shared/error",
+      status: 422
+    )
+  end
+
 end

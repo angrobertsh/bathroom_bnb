@@ -10,7 +10,7 @@ class Api::ReviewsController < ApplicationController
       render "api/bathrooms/show"
     else
       @errors = @review.errors.full_messages
-      error_render(@errors)
+      render_errors(@errors)
     end
   end
 
@@ -18,17 +18,18 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find_by_id(params[:id])
 
     if @review.update_attributes(review_params)
-      @bathroom = Bathroom.find_by_id(new_params[:bathroom_id])
+      @bathroom = Bathroom.find_by_id(@review.bathroom_id)
       render "api/bathrooms/show"
     else
       @errors = @review.errors.full_messages
-      error_render(@errors)
+      render_errors(@errors)
     end
   end
 
   def destroy
-    Review.find_by_id(params[:id]).destroy
-    @bathroom = Bathroom.find_by_id(new_params[:bathroom_id])
+    @review = Review.find_by_id(params[:id])
+    @bathroom = Bathroom.find_by_id(@review.bathroom_id)
+    @review.destroy
     render "api/bathrooms/show"
   end
 
@@ -41,16 +42,8 @@ class Api::ReviewsController < ApplicationController
   def match_review
     if current_user.id != Review.find_by_id(params[:id]).user_id
       @errors = ["Unable to edit other people's reviews."],
-      error_render(@errors)
+      render_errors(@errors)
     end
-  end
-
-  def error_render(errors)
-    @errors = errors
-    render(
-      "api/shared/errors",
-      status: 422
-    )
   end
 
 end
