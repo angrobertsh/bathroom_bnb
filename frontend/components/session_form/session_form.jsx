@@ -38,7 +38,7 @@ class SessionForm extends React.Component{
 
   renderErrors(){
     let errors = [];
-    this.props.errors.forEach((error) => {errors.push(<div className="error">{error}</div>)});
+    this.props.errors.forEach((error, idx) => {errors.push(<li className="error" key={`error${idx}`}>{error}</li>)});
     return errors;
   }
 

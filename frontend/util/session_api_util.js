@@ -6,7 +6,7 @@ export const login = (success, error, user) => {
     success,
     error
   })
-}
+};
 
 export const signup = (success, error, user) => {
   $.ajax({
@@ -16,7 +16,7 @@ export const signup = (success, error, user) => {
     success,
     error
   })
-}
+};
 
 export const logout = (success, error) => {
   $.ajax({
@@ -25,4 +25,4 @@ export const logout = (success, error) => {
     success,
     error
   })
-}
+};

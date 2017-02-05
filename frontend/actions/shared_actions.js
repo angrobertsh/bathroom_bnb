@@ -12,15 +12,15 @@ export const editUpvote = (vote) => {
   }
 }
 
-export const receiveErrors = (errors) => {
+export const receiveBathreviewErrors = (errors) => {
   return{
-    type: "RECEIVE_ERRORS",
+    type: "RECEIVE_BATHREVIEW_ERRORS",
     errors: errors
   }
-}
+};
 
-export const clearErrors = () => {
+export const clearBathreviewErrors = () => {
   return{
-    type: "CLEAR_ERRORS"
+    type: "CLEAR_BATHREVIEW_ERRORS"
   }
-}
+};

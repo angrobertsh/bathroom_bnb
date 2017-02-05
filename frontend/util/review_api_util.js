@@ -6,7 +6,7 @@ export const createReview = (success, error, review) => {
     success,
     error
   })
-}
+};
 
 export const editReview = (success, error, review) => {
   $.ajax({
@@ -16,7 +16,7 @@ export const editReview = (success, error, review) => {
     success,
     error
   })
-}
+};
 
 export const destroyReview = (success, error, id) => {
   $.ajax({
@@ -25,4 +25,4 @@ export const destroyReview = (success, error, id) => {
     success,
     error
   })
-}
+};

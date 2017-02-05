@@ -8,7 +8,7 @@ import * as VOTE_UTILS from '../util/vote_api_util';
 
 const BathroomMiddleware = ({state, dispatch}) => next => action => {
   const error = (errors) => {
-    dispatch(SHARED_ACTIONS.receiveErrors(errors.responseJSON.errors));
+    dispatch(SHARED_ACTIONS.receiveBathreviewErrors(errors.responseJSON.errors));
   };
 
   let success = (bathroom) => {

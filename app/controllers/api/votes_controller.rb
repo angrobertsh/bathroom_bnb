@@ -17,8 +17,8 @@ class Api::VotesController < ApplicationController
     new_params = vote_params
     new_params[:user_id] = current_user.id
     @vote = Vote.find_by_votable_type_and_votable_id_and_user_id(vote_params[:votable_type], vote_params[:votable_id], current_user.id)
-    if @vote.vote_val == new_params[:vote_val].to_i
-      new_params[:vote_val] = 0
+    if @vote.value == new_params[:value].to_i
+      new_params[:value] = 0
     end
     if @vote.update(new_params)
       render_bathroom

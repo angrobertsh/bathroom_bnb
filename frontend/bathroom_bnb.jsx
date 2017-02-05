@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import * as ACTIONS from './actions/session_actions';
+import * as ACTIONS from './actions/bathroom_actions';
+import * as ACTIONS2 from './actions/review_actions';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById("root");
@@ -14,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   store = configureStore(preloadedState);
   window.store = store;
-  window.login = ACTIONS.login;
+  window.all = ACTIONS.requestAllBathrooms;
 
   ReactDOM.render(<Root store={ store }/>, root);
 });

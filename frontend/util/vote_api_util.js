@@ -6,7 +6,7 @@ export const createUpvote = (success, error, vote) => {
     success,
     error
   })
-}
+};
 
 export const updateUpvote = (success, error, vote) => {
   $.ajax({
@@ -16,4 +16,4 @@ export const updateUpvote = (success, error, vote) => {
     success,
     error
   })
-}
+};

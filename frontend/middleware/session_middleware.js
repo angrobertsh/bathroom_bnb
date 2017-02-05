@@ -4,7 +4,7 @@ import * as UTILS from '../util/session_api_util';
 
 const SessionMiddleware = ({state, dispatch}) => next => action => {
   const error = (errors) => {
-    dispatch(SHARED_ACTIONS.receiveErrors(errors.responseJSON.errors));
+    dispatch(SHARED_ACTIONS.receiveSessionErrors(errors.responseJSON.errors));
   };
 
   let success = (user) => {

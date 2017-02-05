@@ -24,3 +24,16 @@ export const receiveCurrentUser = (user) => {
     user: user
   }
 };
+
+export const receiveSessionErrors = (errors) => {
+  return{
+    type: "RECEIVE_SESSION_ERRORS",
+    errors: errors
+  }
+};
+
+export const clearSessionErrors = () => {
+  return{
+    type: "CLEAR_SESSION_ERRORS"
+  }
+};

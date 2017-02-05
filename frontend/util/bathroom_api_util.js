@@ -5,7 +5,7 @@ export const getAllBathrooms = (success, error) => {
     success,
     error
   })
-}
+};
 
 export const getSingleBathroom = (success, error, id) => {
   $.ajax({
@@ -14,7 +14,7 @@ export const getSingleBathroom = (success, error, id) => {
     success,
     error
   })
-}
+};
 
 export const createBathroom = (success, error, bathroom) => {
   $.ajax({
@@ -24,7 +24,7 @@ export const createBathroom = (success, error, bathroom) => {
     success,
     error
   })
-}
+};
 
 export const editBathroom = (success, error, bathroom) => {
   $.ajax({
@@ -34,4 +34,4 @@ export const editBathroom = (success, error, bathroom) => {
     success,
     error
   })
-}
+};

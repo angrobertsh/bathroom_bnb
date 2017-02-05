@@ -16,10 +16,10 @@ const BathroomReducer = (state = defaultState, action) => {
     case "RECEIVE_SINGLE_BATHROOM":
       newState = merge(newState, {bathrooms: action.bathroom, errors: null}, {errors: []});
       return newState;
-    case "RECEIVE_ERRORS":
+    case "RECEIVE_BATHREVIEW_ERRORS":
       newState = merge(newState, {errors: action.errors});
       return newState;
-    case "CLEAR_ERRORS":
+    case "CLEAR_BATHREVIEW_ERRORS":
       newState = merge(newState, {errors: null}, {errors: []});
       return newState;
     default:
