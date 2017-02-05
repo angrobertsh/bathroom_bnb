@@ -18,3 +18,9 @@ export const receiveErrors = (errors) => {
     errors: errors
   }
 }
+
+export const clearErrors = () => {
+  return{
+    type: "CLEAR_ERRORS"
+  }
+}

@@ -1,9 +1,10 @@
 import * as ACTIONS from '../actions/session_actions';
+import * as SHARED_ACTIONS from '../actions/shared_actions';
 import * as UTILS from '../util/session_api_util';
 
 const SessionMiddleware = ({state, dispatch}) => next => action => {
-  const error = (error) => {
-    dispatch(ACTIONS.receiveErrors(error.responseJSON));
+  const error = (errors) => {
+    dispatch(SHARED_ACTIONS.receiveErrors(errors.responseJSON.errors));
   };
 
   let success = (user) => {

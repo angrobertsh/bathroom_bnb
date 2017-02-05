@@ -6,8 +6,9 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render "api/users/show"
     else
+      @errors = ["Incorrect name or password."]
       render(
-        json: ["Incorrect name or password"],
+        "api/shared/error",
         status: 401
       )
     end
@@ -17,8 +18,9 @@ class Api::SessionsController < ApplicationController
     if current_user
       logout
     else
+      @errors = ["Nobody is logged in!"]
       render(
-        json: ["Nobody is logged in!"],
+        "api/shared/error",
         status: 404
       )
     end
