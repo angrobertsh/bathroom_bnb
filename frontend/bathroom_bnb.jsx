@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadedState = {session: {currentUser: window.currentUser}}
   }
   store = configureStore(preloadedState);
-  window.store = store;  
+  window.store = store;
+  window.all = ACTIONS.requestAllBathrooms;
+  window.one = ACTIONS.requestSingleBathroom;
+
 
   ReactDOM.render(<Root store={ store }/>, root);
 });
