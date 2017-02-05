@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from '../app';
 import SessionFormContainer from '../session_form/session_form_container';
+import BathroomIndexContainer from '../bathroom/bathroom_index_container'
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -11,6 +12,7 @@ class AppRouter extends React.Component{
     this.routerconst = (
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App }>
+          <IndexRoute component={ BathroomIndexContainer } />
           <Route path="signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
           <Route path="login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
         </Route>

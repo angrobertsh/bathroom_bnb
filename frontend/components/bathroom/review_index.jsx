@@ -1,14 +1,21 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
 
 class ReviewIndex extends React.Component{
   constructor(props){
     super(props);
+
+    this.renderReviews = this.renderReviews.bind(this);
+  }
+
+  renderReviews(){
+
   }
 
   render(){
-    return (<div></div>);
+    return (<div className="review-index-container">
+      { this.renderReviews() }
+    </div>);
   }
 }
 
-export default withRouter(ReviewIndex)
+export default ReviewIndex;
