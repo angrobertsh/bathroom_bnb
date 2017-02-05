@@ -1,10 +1,10 @@
 import * as ACTIONS from '../actions/session_actions';
 import * as UTILS from '../util/session_api_util';
 
-const SessionsMiddleware = ({state, dispatch}) => next => action => {
+const SessionMiddleware = ({state, dispatch}) => next => action => {
   const error = (error) => {
     dispatch(ACTIONS.receiveErrors(error.responseJSON));
-  }
+  };
 
   let success = (user) => {
     dispatch(ACTIONS.receiveCurrentUser(user));
@@ -29,4 +29,4 @@ const SessionsMiddleware = ({state, dispatch}) => next => action => {
 }
 
 
-export default SessionsMiddleware
+export default SessionMiddleware

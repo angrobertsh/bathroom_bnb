@@ -1,6 +1,7 @@
 import { applyMiddleware } from 'redux';
-import SessionsMiddleware from './session_middleware';
+import SessionMiddleware from './session_middleware';
+import BathroomMiddleware from './bathroom_middleware';
 
-const RootMiddleware = applyMiddleware(SessionsMiddleware);
+const RootMiddleware = applyMiddleware(SessionMiddleware, BathroomMiddleware);
 
 export default RootMiddleware;

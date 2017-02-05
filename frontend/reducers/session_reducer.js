@@ -1,4 +1,3 @@
-import * as ACTIONS from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -8,10 +7,12 @@ const defaultState = {
 
 const SessionReducer = (state = defaultState, action) => {
 
+
   let newState = merge({}, state);
 
   switch (action.type){
     case "RECEIVE_CURRENT_USER":
+    debugger
       newState = merge(defaultState, {currentUser: action.user});
       return newState;
     case "RECEIVE_ERRORS":
