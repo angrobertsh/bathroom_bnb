@@ -5,6 +5,8 @@ const defaultState = {
   errors: []
 };
 
+// typeof bathrooms[number].reviews === "object" if in focus, "number" otherwise
+
 const BathroomReducer = (state = defaultState, action) => {
 
   let newState = merge({}, state);
