@@ -1,5 +1,10 @@
 class Api::VotesController < ApplicationController
-  before_action :ensure_logged_in, only: [:create, :update]
+  before_action :ensure_logged_in, only: [:index, :create, :update]
+
+  def index
+    @review_votes = Vote.where(user_id: current_user.id, votable_type: "Review")
+    @bathroom_votes = Vote.where(user_id: current_user.id, votable_type: "Bathroom")      
+  end
 
   def create
     new_params = vote_params

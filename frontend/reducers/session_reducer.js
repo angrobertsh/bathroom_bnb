@@ -2,11 +2,11 @@ import merge from 'lodash/merge';
 
 const defaultState = {
   currentUser: null,
+  votes: null,
   errors: []
 };
 
 const SessionReducer = (state = defaultState, action) => {
-
 
   let newState = merge({}, state);
 
@@ -19,6 +19,9 @@ const SessionReducer = (state = defaultState, action) => {
       return newState;
     case "CLEAR_SESSION_ERRORS":
       newState = merge(newState, {errors: null}, {errors: []});
+      return newState;
+    case "RECEIVE_VOTES":
+      newState = merge(newState, {votes: action.votes});
       return newState;
     default:
       return newState;

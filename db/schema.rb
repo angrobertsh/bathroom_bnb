@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170131061428) do
     t.float    "lat",         null: false
     t.float    "lng",         null: false
     t.boolean  "single",      null: false
+    t.boolean  "accessible",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 20170131061428) do
 
   create_table "votes", force: :cascade do |t|
     t.integer  "value",        null: false
-    t.integer  "user_id",      null: false
+    t.integer  "user_id"
     t.integer  "votable_id"
     t.string   "votable_type"
     t.datetime "created_at",   null: false

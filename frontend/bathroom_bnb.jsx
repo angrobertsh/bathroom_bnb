@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import * as ACTIONS from './actions/bathroom_actions';
-import * as ACTIONS2 from './actions/review_actions';
+import * as ACTIONS from './actions/session_actions';
+import * as ACTIONS2 from './actions/bathroom_actions';
+import * as ACTIONS3 from './actions/review_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,10 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     preloadedState = {session: {currentUser: window.currentUser}}
   }
   store = configureStore(preloadedState);
+  store.dispatch(ACTIONS.getVotes());
   window.store = store;
-  window.all = ACTIONS.requestAllBathrooms;
-  window.one = ACTIONS.requestSingleBathroom;
-
 
   ReactDOM.render(<Root store={ store }/>, root);
 });

@@ -1,6 +1,6 @@
 class Bathroom < ActiveRecord::Base
   validates :description, :gender, :lat, :lng, presence: true
-  validates :single, inclusion: { in: [true, false] }
+  validates :single, :accessible, inclusion: { in: [true, false] }
   validates :lat, uniqueness: { scope: [:lng, :gender], message: "This bathroom already exists." }
 
   has_many :reviews
@@ -8,6 +8,10 @@ class Bathroom < ActiveRecord::Base
   has_many :votes, :as => :votable
 
   def tags=(tags)
+  end
+
+  def stars
+    self.reviews.inject(0){|acc, review| acc + review.stars}
   end
 
 end

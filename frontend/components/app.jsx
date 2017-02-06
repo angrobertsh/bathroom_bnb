@@ -9,6 +9,6 @@ const App = ({children}) => (
   </div>
 );
 
-// You passed this to the router as the default route
+// You passed this to the router as the default route, the children are populated by the router
 
 export default App;

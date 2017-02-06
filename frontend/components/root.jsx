@@ -8,6 +8,6 @@ const Root = ({store}) => (
    </Provider>
 );
 
-// This holds the router which holds App
+// This provides the store to the router which holds App
 
 export default Root;

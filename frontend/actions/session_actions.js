@@ -37,3 +37,16 @@ export const clearSessionErrors = () => {
     type: "CLEAR_SESSION_ERRORS"
   }
 };
+
+export const getVotes = () => {
+  return {
+    type: "GET_VOTES"
+  }
+};
+
+export const receiveVotes = (votes) => {
+  return {
+    type: "RECEIVE_VOTES",
+    votes: votes
+  }
+};

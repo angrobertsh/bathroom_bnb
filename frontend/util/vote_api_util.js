@@ -1,3 +1,12 @@
+export const getCurrentUserVotes = (success, error) => {
+  $.ajax({
+    url: "api/votes",
+    method: "GET",
+    success,
+    error
+  })
+}
+
 export const createUpvote = (success, error, vote) => {
   $.ajax({
     url: "api/votes",

@@ -1,4 +1,5 @@
 import * as BATHROOM_ACTIONS from '../actions/bathroom_actions';
+import * as SESSION_ACTIONS from '../actions/session_actions';
 import * as SHARED_ACTIONS from '../actions/shared_actions';
 
 import * as BATHROOM_UTILS from '../util/bathroom_api_util';
@@ -41,15 +42,22 @@ const BathroomMiddleware = ({state, dispatch}) => next => action => {
       REVIEW_UTILS.destroyReview(success, error, action.id);
       return next(action);
     case "UPVOTE":
+      success = (bathroom) => {
+        dispatch(BATHROOM_ACTIONS.receiveSingleBathroom(bathroom));
+        dispatch(SESSION_ACTIONS.getVotes());
+      };
       VOTE_UTILS.createUpvote(success, error, action.vote);
       return next(action);
     case "EDIT_UPVOTE":
+      success = (bathroom) => {
+        dispatch(BATHROOM_ACTIONS.receiveSingleBathroom(bathroom));
+        dispatch(SESSION_ACTIONS.getVotes());
+      };
       VOTE_UTILS.updateUpvote(success, error, action.vote);
       return next(action);
     default:
       return next(action);
   }
 }
-
 
 export default BathroomMiddleware

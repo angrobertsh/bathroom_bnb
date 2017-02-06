@@ -7,6 +7,7 @@ class CreateBathrooms < ActiveRecord::Migration
       t.float :lat, null: false
       t.float :lng, null: false
       t.boolean :single, null: false
+      t.boolean :accessible, null: false
 
       t.timestamps null: false
     end
