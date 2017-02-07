@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import BathroomIndex from './bathroom_index';
+import Search from './search';
 import * as BATHROOM_ACTIONS from '../../actions/bathroom_actions';
 import * as REVIEW_ACTIONS from '../../actions/review_actions';
 import * as SHARED_ACTIONS from '../../actions/shared_actions';
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BathroomIndex);
+)(Search);

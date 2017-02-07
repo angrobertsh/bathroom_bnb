@@ -8,10 +8,6 @@ class BathroomIndex extends React.Component{
     this.renderBathrooms = this.renderBathrooms.bind(this);
   }
 
-  componentWillMount(){
-    this.props.requestAllBathrooms();
-  }
-
   renderBathrooms(){
     let bathrooms = Object.keys(this.props.bathrooms)
     return bathrooms.map((key) => {
