@@ -9,7 +9,7 @@ export default class MarkerManager {
   }
 
   updateMarkers(bathrooms){
-    this.bathrooms = bathrooms;
+    this.bathrooms = Object.keys(bathrooms).map((key) => bathrooms[key]);
     this._bathroomsToAdd().forEach(this._createMarkerFromBathroom);
   }
 

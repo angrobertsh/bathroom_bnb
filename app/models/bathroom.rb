@@ -11,7 +11,14 @@ class Bathroom < ActiveRecord::Base
   end
 
   def stars
-    self.reviews.inject(0){|acc, review| acc + review.stars}
+    self.reviews.inject(0){|acc, review| acc + review.stars}/self.reviews.length
+  end
+
+  def self.in_bounds(bounds)
+    self.where("lat < ?", bounds[:northEast][:lat])
+        .where("lat > ?", bounds[:southWest][:lat])
+        .where("lng > ?", bounds[:southWest][:lng])
+        .where("lng < ?", bounds[:northEast][:lng])
   end
 
 end

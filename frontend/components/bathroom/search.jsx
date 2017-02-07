@@ -7,15 +7,14 @@ class Search extends React.Component{
     super(props);
   }
 
-  componentWillMount(){
-    this.props.requestAllBathrooms();
-  }
-
   render(){
     return (
       <div>
         <BathroomMap
-          bathrooms={this.props.bathrooms} />
+          bathrooms={this.props.bathrooms}
+          updateBounds={this.props.updateBounds}
+          requestAllBathrooms={this.props.requestAllBathrooms}
+          filters={this.props.filters} />
         <BathroomIndex
           bathrooms={this.props.bathrooms}
           currentUser={this.props.currentUser}

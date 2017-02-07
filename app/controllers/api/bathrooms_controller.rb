@@ -2,7 +2,7 @@ class Api::BathroomsController < ApplicationController
   before_action :ensure_logged_in, only: [:create]
 
   def index
-    @bathrooms = Bathroom.all
+    @bathrooms = Bathroom.in_bounds(params[:bounds])
   end
 
   def show

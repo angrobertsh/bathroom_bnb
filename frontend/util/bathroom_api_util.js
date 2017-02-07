@@ -1,7 +1,8 @@
-export const getAllBathrooms = (success, error) => {
+export const getAllBathrooms = (success, error, filters) => {
   $.ajax({
     url: "api/bathrooms",
     method: "GET",
+    data: filters,
     success,
     error
   })

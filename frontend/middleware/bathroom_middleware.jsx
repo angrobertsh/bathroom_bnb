@@ -21,7 +21,7 @@ const BathroomMiddleware = ({state, dispatch}) => next => action => {
       success = (bathrooms) => {
         dispatch(BATHROOM_ACTIONS.receiveAllBathrooms(bathrooms));
       };
-      BATHROOM_UTILS.getAllBathrooms(success, error)
+      BATHROOM_UTILS.getAllBathrooms(success, error, action.filters);
       return next(action);
     case "REQUEST_SINGLE_BATHROOM":
       BATHROOM_UTILS.getSingleBathroom(success, error, action.id);
