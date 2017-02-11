@@ -6,14 +6,20 @@ export default class MarkerManager {
     this._createMarkerFromBathroom = this._createMarkerFromBathroom.bind(this);
     this._bathroomsToAdd = this._bathroomsToAdd.bind(this);
     this._markersToRemove = this._markersToRemove.bind(this);
+    this._removeMarker = this._removeMarker.bind(this);
   }
 
   updateMarkers(bathrooms){
     this.bathrooms = Object.keys(bathrooms).map((key) => bathrooms[key]);
     this._bathroomsToAdd().forEach(this._createMarkerFromBathroom);
+    this._markersToRemove().forEach(this._removeMarker);
   }
 
   _markersToRemove(){
+
+  }
+
+  _removeMarker(marker){
 
   }
 
