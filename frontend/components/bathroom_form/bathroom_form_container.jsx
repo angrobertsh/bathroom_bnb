@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  createNewBathroom: ((bathroom) => (dispatch(BATHROOM_ACTIONS.createNewBathroom(bathroom))
 });
 
 

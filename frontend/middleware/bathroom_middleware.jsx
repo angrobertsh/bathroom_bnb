@@ -1,3 +1,5 @@
+import { hashHistory } from 'react-router';
+
 import * as BATHROOM_ACTIONS from '../actions/bathroom_actions';
 import * as SESSION_ACTIONS from '../actions/session_actions';
 import * as SHARED_ACTIONS from '../actions/shared_actions';
@@ -27,9 +29,17 @@ const BathroomMiddleware = ({state, dispatch}) => next => action => {
       BATHROOM_UTILS.getSingleBathroom(success, error, action.id);
       return next(action);
     case "CREATE_NEW_BATHROOM":
+      success = (bathroom) => {
+        dispatch(BATHROOM_ACTIONS.receiveSingleBathroom(bathroom));
+        hashHistory.push(`bathrooms/${bathroom[Object.keys(bathroom)].id}`)
+      };
       BATHROOM_UTILS.createBathroom(success, error, action.bathroom);
       return next(action);
     case "UPDATE_BATHROOM":
+      success = (bathroom) => {
+        dispatch(BATHROOM_ACTIONS.receiveSingleBathroom(bathroom));
+        hashHistory.push(`bathrooms/${bathroom[Object.keys(bathroom)].id}`)
+      };
       BATHROOM_UTILS.editBathroom(success, error, action.bathroom);
       return next(action);
     case "CREATE_REVIEW":
