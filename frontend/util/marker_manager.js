@@ -16,11 +16,14 @@ export default class MarkerManager {
   }
 
   _markersToRemove(){
-
+    const currentBathrooms = this.bathrooms.map( (bathroom) => bathroom.id);
+    return this.markers.filter( (marker) => !currentBathrooms.includes(marker.bathroomId));
   }
 
   _removeMarker(marker){
-
+    const idx = this.markers.indexOf( marker );
+    this.markers[idx].setMap(null);
+    this.markers.splice(idx, 1);
   }
 
   _createMarkerFromBathroom(bathroom){
