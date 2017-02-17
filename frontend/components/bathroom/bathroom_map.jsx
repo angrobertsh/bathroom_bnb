@@ -6,6 +6,7 @@ class BathroomMap extends React.Component{
   constructor(props){
     super(props);
     this._registerListeners = this._registerListeners.bind(this);
+    this._handleClick = this._handleClick.bind(this);
     this.requestAllBathrooms = this.props.requestAllBathrooms.bind(this);
     this.updateBounds = this.props.updateBounds.bind(this);
   }
@@ -25,6 +26,13 @@ class BathroomMap extends React.Component{
     this.MarkerManager.updateMarkers(this.props.bathrooms);
   }
 
+  _handleClick(coords){
+    this.props.router.push({
+      pathname: "benches/new",
+      query: coords
+    });
+  }
+
   _registerListeners(){
     google.maps.event.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
@@ -32,6 +40,9 @@ class BathroomMap extends React.Component{
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west } };
       Promise.resolve(this.updateBounds(bounds)).then(this.requestAllBathrooms(this.props.filters));
+    });
+    google.maps.event.addListener(this.map, 'click', (event) => {
+      this._handleClick({lat: event.latLng.lat(), lng: event.latLng.lng()})
     });
   }
 

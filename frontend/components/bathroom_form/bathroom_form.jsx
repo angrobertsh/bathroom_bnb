@@ -45,6 +45,7 @@ class BathroomForm extends React.Component{
   }
 
   render(){
+    debugger
     return (<div id="bathroombox">
       <form id="bathroomform" onSubmit={this.handleSubmit}>
         <div id="bathroomformname">
