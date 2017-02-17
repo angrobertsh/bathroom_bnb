@@ -34,14 +34,17 @@ class Api::BathroomsController < ApplicationController
   private
 
   def bathroom_params
-    params.require(:bathroom).permit(:url, :lat, :lng, :gender, :description, :tags, :single)
+    params.require(:bathroom).permit(:url, :lat, :lng, :gender, :description, :tags, :single, :accessible)
   end
 
   def ensure_logged_in
     # Only a problem if you create a bathroom with ajax--no db level validation for logged in
     if logged_in? == false
-      @errors = ["Please log in to review a bathroom."]
-      render "api/shared/error"
+      @errors = ["Please log in to create a bathroom."]
+      render(
+        "api/shared/error",
+        status: 401
+      )
     end
   end
 

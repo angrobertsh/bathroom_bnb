@@ -11,7 +11,8 @@ class BathroomForm extends React.Component{
       lat: this.props.location.query.lat,
       lng: this.props.location.query.lng,
       single: null,
-      accessible: null
+      accessible: null,
+      tags: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -19,7 +20,6 @@ class BathroomForm extends React.Component{
   }
 
   update(e){
-    e.preventDefault();
     let stateUpdate = {};
     let parsedVal;
     if(e.target.value === "true"){
@@ -33,9 +33,9 @@ class BathroomForm extends React.Component{
     this.setState(stateUpdate);
   }
 
-  handleSubmit(){
+  handleSubmit(e){
     e.preventDefault();
-    this.props.createNewBathroom(this.state);
+    this.props.createNewBathroom({bathroom: this.state});
   }
 
   renderErrors(){
@@ -57,27 +57,31 @@ class BathroomForm extends React.Component{
           <input type="text" name="description" placeholder="Bathroom Description" value={this.state.description} onChange={this.update}></input>
 
           <div id="bathroomlatlng" className="bathroomsubfields">
-            <input type="text" name="lat" placeholder="Latitude" value={this.state.lat} onChange={this.update}></input>
-            <input type="text" name="lng" placeholder="Longitude" value={this.state.lng} onChange={this.update}></input>
+            <input type="text" name="lat" placeholder="Latitude" value={this.state.lat} onChange={this.update} />
+            <input type="text" name="lng" placeholder="Longitude" value={this.state.lng} onChange={this.update} />
           </div>
 
           <div id="bathroomgender" className="bathroomsubfields">
             Gender:
-            <input type="radio" name="gender" value="men" onChange={this.update} /> Men
-            <input type="radio" name="gender" value="women" onChange={this.update} /> Women
-            <input type="radio" name="gender" value="neutral" onChange={this.update} /> Gender Neutral
+            <input type="radio" name="gender" value="men" onChange={this.update} checked={this.state.gender === "men"} /> Men
+            <input type="radio" name="gender" value="women" onChange={this.update} checked={this.state.gender === "women"} /> Women
+            <input type="radio" name="gender" value="neutral" onChange={this.update} checked={this.state.gender === "neutral"} /> Gender Neutral
           </div>
 
           <div id="bathroomsingle" className="bathroomsubfields">
             Single?
-            <input type="radio" name="single" value={true} onChange={this.update} /> True
-            <input type="radio" name="single" value={false} onChange={this.update} /> False
+            <input type="radio" name="single" value={true} onChange={this.update} checked={this.state.single === true} /> True
+            <input type="radio" name="single" value={false} onChange={this.update} checked={this.state.single === false} /> False
           </div>
 
           <div id="bathroomaccessible" className="bathroomsubfields">
             Accessible?
-            <input type="radio" name="accessible" value={true} onChange={this.update} /> True
-            <input type="radio" name="accessible" value={false} onChange={this.update} /> False
+            <input type="radio" name="accessible" value={true} onChange={this.update} checked={this.state.accessible === true} /> True
+            <input type="radio" name="accessible" value={false} onChange={this.update} checked={this.state.accessible === false} /> False
+          </div>
+
+          <div id="bathroomaccessible" className="bathroomsubfields">
+            <input type="text" name="tags" placeholder="Tags, separated by commas (e.g. scented, maintained, dirty)" value={this.state.tags} onChange={this.update} />
           </div>
 
           <input type="submit" value="Submit" />

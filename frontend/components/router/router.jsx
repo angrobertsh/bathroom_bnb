@@ -17,7 +17,7 @@ class AppRouter extends React.Component{
           <IndexRoute component={ SearchContainer } />
           <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
           <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
-          <Route path="/bathrooms/new" component={ BathroomFormContainer } />
+          <Route path="/bathrooms/new" component={ BathroomFormContainer } onEnter={this._ensureLoggedInMap} />
           <Route path="/bathrooms/:bathroomId" component={ BathroomShowContainer } />
         </Route>
       </Router>
@@ -30,13 +30,19 @@ class AppRouter extends React.Component{
     }
   }
 
+  _ensureLoggedInMap(nextState, replace){
+    // if(!this.props.currentUser){
+    //   // make a modal pop up and say log in please, might have to replace('/');
+    // }
+  }
+
   _ensureLoggedIn(nextState, replace){
     if(!this.props.currentUser){
       replace('/signup');
     }
   }
 
-  render() {
+  render(){
     return this.routerconst;
   }
 }

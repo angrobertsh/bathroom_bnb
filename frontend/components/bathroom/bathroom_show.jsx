@@ -46,7 +46,7 @@ class BathroomShow extends React.Component {
               <li>Gender: {formatStr(bathroom.gender)}</li>
               <li>Private? {(bathroom.single ? "Yes" : "No")}</li>
               <li>Accessible? {(bathroom.accessible ? "Yes" : "No")}</li>
-              <li>Casual Pooper Rating: {typeof bathroom.votes === "number" ? bathroom.votes : bathroom.votes.map((vote) => vote.value).reduce((a, b) => a + b) }<div className="bathroom-votes"><div className="bathroom-upvote" onClick={this.handleVote}>Loved it</div><div className="bathroom-downvote" onClick={this.handleVote}>Hated it</div></div></li>
+              <li>Casual Pooper Rating: {typeof bathroom.votes === "number" ? bathroom.votes : bathroom.votes.map((vote) => vote.value).reduce((a, b) => a + b, 0) }<div className="bathroom-votes"><div className="bathroom-upvote" onClick={this.handleVote}>Loved it</div><div className="bathroom-downvote" onClick={this.handleVote}>Hated it</div></div></li>
               <li>In-Depth Reviews: {typeof bathroom.reviews === "number" ? bathroom.reviews : bathroom.reviews.length}</li>
             </ul>
           </div>

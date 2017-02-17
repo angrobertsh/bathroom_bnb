@@ -11,7 +11,10 @@ class Bathroom < ActiveRecord::Base
   end
 
   def stars
-    self.reviews.inject(0){|acc, review| acc + review.stars}/self.reviews.length
+    if self.reviews.length > 0
+      self.reviews.inject(0){|acc, review| acc + review.stars}/self.reviews.length
+    end
+    0
   end
 
   def self.in_bounds(bounds)
