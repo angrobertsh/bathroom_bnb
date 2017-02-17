@@ -14,7 +14,8 @@ class Search extends React.Component{
           bathrooms={this.props.bathrooms}
           updateBounds={this.props.updateBounds}
           requestAllBathrooms={this.props.requestAllBathrooms}
-          filters={this.props.filters} />
+          filters={this.props.filters}
+          currentUser={this.props.currentUser} />
         <BathroomIndex
           bathrooms={this.props.bathrooms}
           currentUser={this.props.currentUser}

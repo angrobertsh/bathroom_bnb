@@ -10,6 +10,7 @@ class BathroomShow extends React.Component {
     super(props);
 
     this.handleVote = this.handleVote.bind(this);
+    this.renderTags = this.renderTags.bind(this);
   }
 
   componentWillMount(){
@@ -29,6 +30,13 @@ class BathroomShow extends React.Component {
     this.props.upvote(vote);
   }
 
+  renderTags(tags){
+    return tags.map(
+      (tagname) =>
+        <span key={tagname} className="bathroom-tag"><Link to={`/bathrooms/tagged/${tagname}`}>{tagname}</Link></span>
+      );
+  }
+
   render(){
     let bathroom = this.props.bathroom
     if(bathroom){
@@ -39,6 +47,9 @@ class BathroomShow extends React.Component {
           </div>
           <div className="bathroom-stars">
             Stars: {bathroom.stars}
+          </div>
+          <div className="bathroom-tags">
+            Tagged: {this.renderTags(bathroom.tags)}
           </div>
           <div className="bathroom-stats">
             Stats:

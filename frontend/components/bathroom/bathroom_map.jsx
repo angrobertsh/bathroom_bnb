@@ -9,6 +9,7 @@ class BathroomMap extends React.Component{
     this._handleClick = this._handleClick.bind(this);
     this.requestAllBathrooms = this.props.requestAllBathrooms.bind(this);
     this.updateBounds = this.props.updateBounds.bind(this);
+    this.bathroomClick = this.bathroomClick.bind(this);
   }
 
   componentDidMount(){
@@ -17,7 +18,7 @@ class BathroomMap extends React.Component{
       zoom: 13
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager = new MarkerManager(this.map, this.bathroomClick);
     this._registerListeners();
     this.MarkerManager.updateMarkers(this.props.bathrooms);
   }
@@ -27,10 +28,21 @@ class BathroomMap extends React.Component{
   }
 
   _handleClick(coords){
+    if(this.props.currentUser){
+      this.props.router.push({
+        pathname: "bathrooms/new",
+        query: coords
+      });
+    } else {
+      // make this a less offensive popup
+      alert("Please log in to add a new bathroom!");
+    }
+  }
+
+  bathroomClick(bathroom){
     this.props.router.push({
-      pathname: "bathrooms/new",
-      query: coords
-    });
+      pathname: `bathrooms/${bathroom.id}`
+    });    
   }
 
   _registerListeners(){

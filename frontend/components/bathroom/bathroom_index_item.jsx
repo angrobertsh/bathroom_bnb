@@ -11,6 +11,7 @@ class BathroomIndexItem extends React.Component {
 
     this.handleRoute = this.handleRoute.bind(this);
     this.handleVote = this.handleVote.bind(this);
+    this.renderTags = this.renderTags.bind(this);
   }
 
   handleVote(e){
@@ -30,6 +31,13 @@ class BathroomIndexItem extends React.Component {
     this.props.router.push(`bathrooms/${this.props.bathroom.id}`);
   }
 
+  renderTags(tags){
+    return tags.map(
+      (tagname) =>
+        <span key={tagname} className="bathroom-tag"><Link to={`/bathrooms/tagged/${tagname}`}>{tagname}</Link></span>
+      );
+  }
+
   render(){
     let bathroom = this.props.bathroom
 
@@ -40,6 +48,9 @@ class BathroomIndexItem extends React.Component {
         </div>
         <div className="bathroom-stars">
           Stars: {bathroom.stars}
+        </div>
+        <div className="bathroom-tags">
+          Tagged: {this.renderTags(bathroom.tags)}
         </div>
         <div className="bathroom-stats">
           Stats:

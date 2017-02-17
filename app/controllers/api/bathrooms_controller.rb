@@ -3,6 +3,9 @@ class Api::BathroomsController < ApplicationController
 
   def index
     @bathrooms = Bathroom.in_bounds(params[:bounds])
+    # if params[:tags]
+    #   @bathrooms = @bathrooms.where(bathroom.tags.includes(params[:tag][0]))
+    # end
   end
 
   def show

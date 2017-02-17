@@ -33,7 +33,7 @@ export default class MarkerManager {
       map: this.map,
       bathroomId: bathroom.id
     });
-    marker.addEventListener('click', () => this.handleClick(bathroom));
+    marker.addListener('click', () => this.handleClick(bathroom));
     this.markers.push(marker);
   }
 
