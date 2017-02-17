@@ -28,7 +28,7 @@ class BathroomMap extends React.Component{
 
   _handleClick(coords){
     this.props.router.push({
-      pathname: "benches/new",
+      pathname: "bathrooms/new",
       query: coords
     });
   }

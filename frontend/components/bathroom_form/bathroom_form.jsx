@@ -8,8 +8,8 @@ class BathroomForm extends React.Component{
       description: "",
       gender: null,
       url: null,
-      lat: null,
-      lng: null,
+      lat: this.props.location.query.lat,
+      lng: this.props.location.query.lng,
       single: null,
       accessible: null
     }
@@ -45,7 +45,6 @@ class BathroomForm extends React.Component{
   }
 
   render(){
-    debugger
     return (<div id="bathroombox">
       <form id="bathroomform" onSubmit={this.handleSubmit}>
         <div id="bathroomformname">
@@ -56,6 +55,11 @@ class BathroomForm extends React.Component{
         </div>
         <div id="bathroomfields">
           <input type="text" name="description" placeholder="Bathroom Description" value={this.state.description} onChange={this.update}></input>
+
+          <div id="bathroomlatlng" className="bathroomsubfields">
+            <input type="text" name="lat" placeholder="Latitude" value={this.state.lat} onChange={this.update}></input>
+            <input type="text" name="lng" placeholder="Longitude" value={this.state.lng} onChange={this.update}></input>
+          </div>
 
           <div id="bathroomgender" className="bathroomsubfields">
             Gender:
