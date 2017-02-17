@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from '../app';
 import SessionFormContainer from '../session_form/session_form_container';
 import BathroomShowContainer from '../bathroom/bathroom_show_container';
+import BathroomFormContainer from '../bathroom_form/bathroom_form_container';
 import SearchContainer from '../bathroom/search_container';
 
 class AppRouter extends React.Component{
@@ -17,6 +18,7 @@ class AppRouter extends React.Component{
           <Route path="signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
           <Route path="login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
           <Route path="bathrooms/:bathroomId" component={ BathroomShowContainer } />
+          <Route path="new" component={ BathroomFormContainer } />
         </Route>
       </Router>
     )
