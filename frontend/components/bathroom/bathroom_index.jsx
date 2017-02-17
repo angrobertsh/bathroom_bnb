@@ -26,4 +26,4 @@ class BathroomIndex extends React.Component{
   }
 }
 
-export default withRouter(BathroomIndex)
+export default withRouter(BathroomIndex);

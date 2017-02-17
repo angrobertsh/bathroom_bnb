@@ -39,7 +39,9 @@ class BathroomForm extends React.Component{
   }
 
   renderErrors(){
-
+    let errors = [];
+    this.props.errors.forEach((error, idx) => {errors.push(<li className="error" key={`error${idx}`}>{error}</li>)});
+    return errors;
   }
 
   render(){
@@ -52,7 +54,7 @@ class BathroomForm extends React.Component{
           <ul id="bathroomerrors">{this.renderErrors()}</ul>
         </div>
         <div id="bathroomfields">
-          <input type="text" name="description" placeholder="Description" value={this.state.description} onChange={this.update}></input>
+          <input type="text" name="description" placeholder="Bathroom Description" value={this.state.description} onChange={this.update}></input>
 
           <div id="bathroomgender" className="bathroomsubfields">
             Gender:

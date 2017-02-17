@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, withRouter } from 'react-router';
 import MarkerManager from '../../util/marker_manager';
 
 class BathroomMap extends React.Component{
@@ -40,4 +41,4 @@ class BathroomMap extends React.Component{
   }
 }
 
-export default BathroomMap;
+export default withRouter(BathroomMap);

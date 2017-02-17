@@ -15,10 +15,10 @@ class AppRouter extends React.Component{
       <Router history={ hashHistory } onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="/" component={ App }>
           <IndexRoute component={ SearchContainer } />
-          <Route path="signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
-          <Route path="login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
-          <Route path="bathrooms/:bathroomId" component={ BathroomShowContainer } />
-          <Route path="new" component={ BathroomFormContainer } />
+          <Route path="/signup" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
+          <Route path="/login" component={ SessionFormContainer } onEnter={this._redirectIfLoggedIn} />
+          <Route path="/bathrooms/new" component={ BathroomFormContainer } />
+          <Route path="/bathrooms/:bathroomId" component={ BathroomShowContainer } />
         </Route>
       </Router>
     )
