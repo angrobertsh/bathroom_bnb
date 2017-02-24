@@ -42,7 +42,7 @@ class BathroomMap extends React.Component{
   bathroomClick(bathroom){
     this.props.router.push({
       pathname: `bathrooms/${bathroom.id}`
-    });    
+    });
   }
 
   _registerListeners(){
@@ -51,7 +51,9 @@ class BathroomMap extends React.Component{
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west } };
-      Promise.resolve(this.updateBounds(bounds)).then(this.requestAllBathrooms(this.props.filters));
+      $.when(this.updateBounds(bounds)).then(this.requestAllBathrooms(this.props.filters));
+      // When IE starts supporting Promise, can swap to this:
+      // Promise.resolve(this.updateBounds(bounds)).then(this.requestAllBathrooms(this.props.filters));
     });
     google.maps.event.addListener(this.map, 'click', (event) => {
       this._handleClick({lat: event.latLng.lat(), lng: event.latLng.lng()})
