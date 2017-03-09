@@ -8,6 +8,9 @@
 
 
 User.create(username: "Poopo", password: "password")
+User.create(username: "Jarno", password: "spoopy")
+User.create(username: "Jarno2", password: "spoopy")
+User.create(username: "Jarno3", password: "spoopy")
 
 Bathroom.create(description: "3rd and 7th 14th floor unicrapper", gender: "unisex", lat: 10.8, lng: 12, single: true, accessible: true)
 Bathroom.create(description: "3rd and 7th 14th floor unicrapper", gender: "men", lat: 10.8, lng: 12, single: false, accessible: true)
