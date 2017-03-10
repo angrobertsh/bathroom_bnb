@@ -42,7 +42,7 @@ const BathroomMiddleware = ({state, dispatch}) => next => action => {
       };
       BATHROOM_UTILS.editBathroom(success, error, action.bathroom);
       return next(action);
-    case "CREATE_REVIEW":
+    case "CREATE_NEW_REVIEW":
       REVIEW_UTILS.createReview(success, error, action.review);
       return next(action);
     case "UPDATE_REVIEW":

@@ -40,47 +40,47 @@ class BathroomForm extends React.Component{
 
   renderErrors(){
     let errors = [];
-    this.props.errors.forEach((error, idx) => {errors.push(<li className="error" key={`error${idx}`}>{error}</li>)});
+    this.props.errors.forEach((error, idx) => {errors.push(<li className="bathroom-error" key={`error${idx}`}>{error}</li>)});
     return errors;
   }
 
   render(){
-    return (<div id="bathroombox">
-      <form id="bathroomform" onSubmit={this.handleSubmit}>
-        <div id="bathroomformname">
-          <span id="bathroomformtitle">Create New Bathroom</span>
+    return (<div id="bathroom-form-container">
+      <form id="bathroom-form" onSubmit={this.handleSubmit}>
+        <div id="bathroom-form-name">
+          <span id="bathroom-form-title">Create New Bathroom</span>
         </div>
-        <div id="bathroomerrors">
-          <ul id="bathroomerrors">{this.renderErrors()}</ul>
+        <div id="bathroom-errors">
+          <ul id="bathroom-errors">{this.renderErrors()}</ul>
         </div>
-        <div id="bathroomfields">
+        <div id="bathroom-fields">
           <input type="text" name="description" placeholder="Bathroom Description" value={this.state.description} onChange={this.update}></input>
 
-          <div id="bathroomlatlng" className="bathroomsubfields">
+          <div id="bathroom-lat-lng" className="bathroom-subfields">
             <input type="text" name="lat" placeholder="Latitude" value={this.state.lat} onChange={this.update} />
             <input type="text" name="lng" placeholder="Longitude" value={this.state.lng} onChange={this.update} />
           </div>
 
-          <div id="bathroomgender" className="bathroomsubfields">
+          <div id="bathroom-gender" className="bathroom-subfields">
             Gender:
             <input type="radio" name="gender" value="men" onChange={this.update} checked={this.state.gender === "men"} /> Men
             <input type="radio" name="gender" value="women" onChange={this.update} checked={this.state.gender === "women"} /> Women
             <input type="radio" name="gender" value="neutral" onChange={this.update} checked={this.state.gender === "neutral"} /> Gender Neutral
           </div>
 
-          <div id="bathroomsingle" className="bathroomsubfields">
+          <div id="bathroom-single" className="bathroom-subfields">
             Single?
             <input type="radio" name="single" value={true} onChange={this.update} checked={this.state.single === true} /> True
             <input type="radio" name="single" value={false} onChange={this.update} checked={this.state.single === false} /> False
           </div>
 
-          <div id="bathroomaccessible" className="bathroomsubfields">
+          <div id="bathroom-accessible" className="bathroom-subfields">
             Accessible?
             <input type="radio" name="accessible" value={true} onChange={this.update} checked={this.state.accessible === true} /> True
             <input type="radio" name="accessible" value={false} onChange={this.update} checked={this.state.accessible === false} /> False
           </div>
 
-          <div id="bathroomaccessible" className="bathroomsubfields">
+          <div id="bathroom-tags" className="bathroom-subfields">
             <input type="text" name="tags" placeholder="Tags, separated by commas (e.g. scented, maintained, dirty)" value={this.state.tags} onChange={this.update} />
           </div>
 

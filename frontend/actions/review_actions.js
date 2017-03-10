@@ -1,5 +1,5 @@
-export const createReview = (review) => ({
-    type: "CREATE_REVIEW",
+export const createNewReview = (review) => ({
+    type: "CREATE_NEW_REVIEW",
     review: review
 });
 
