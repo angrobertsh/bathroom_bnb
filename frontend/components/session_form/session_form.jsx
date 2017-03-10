@@ -15,6 +15,12 @@ class SessionForm extends React.Component{
     this.authAltMessage = this.authAltMessage.bind(this);
   }
 
+  componentDidUpdate() {
+    if(this.props.loggedIn){
+      this.props.router.push('/');
+    }
+  }
+
   update(e){
     e.preventDefault();
     let stateUpdate = {};
@@ -25,7 +31,6 @@ class SessionForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     this.props.formAction(this.state);
-    this.props.router.push("/");
   }
 
   authAltMessage(){

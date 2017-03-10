@@ -10,6 +10,7 @@ class Greeting extends React.Component{
     if(this.props.currentUser){
       return (
         <div className="greetingbar">
+          <Link to={"/"}><div className="bigtitle">Bathroom BnB</div></Link>
           <div className="welcome">Welcome {this.props.currentUser.username}!</div>
           <div className="authbutton" onClick={this.props.logout}>Logout</div>
         </div>
@@ -17,6 +18,7 @@ class Greeting extends React.Component{
     } else {
       return (
         <div className="greetingbar">
+          <Link to={"/"}><div className="bigtitle">Bathroom BnB</div></Link>
           <Link to={"/signup"}><div className="authbutton">Signup</div></Link>
           <Link to={"/login"}><div className="authbutton">Login</div></Link>
         </div>

@@ -29,6 +29,7 @@ class AppRouter extends React.Component{
   }
 
   _redirectIfLoggedIn(nextState, replace){
+    this.props.clearSessionErrors();
     if(this.props.currentUser){
       replace('/');
     }
