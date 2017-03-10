@@ -1,39 +1,41 @@
 var path = require('path');
-var webpack = require("webpack");
+var webpack = require('webpack');
 
 module.exports = {
-  // context: __dirname,
+  context: __dirname,
   entry: "./frontend/bathroom_bnb.jsx",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
+    filename: "bundle.js",
+    devtoolModuleFilenameTemplate: '[resourcePath]',
+    devtoolFallbackModuleFilenameTemplate: '[resourcePath]?[hash]'
   },
-  // plugins:[
-  //   new webpack.DefinePlugin({
-  //     'process.env':{
-  //       'NODE_ENV': JSON.stringify('production')
-  //     }
-  //   }),
-  //   new webpack.optimize.UglifyJsPlugin({
-  //     compress:{
-  //       warnings: true
-  //     }
-  //   })
-  // ],
+  plugins:[
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{
+        warnings: false
+      }
+    })
+  ],
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: [/\.jsx?$/, /\.js?$/],
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
-          presets: ['react', 'es2015']
+          presets: ["es2015","react"]
         }
       }
     ]
   },
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '*']
+    extensions: ['', '.js', '.jsx']
   }
 };
